@@ -138,13 +138,14 @@ extension BottomSheetViewController {
             dimmedView.bottomAnchor.constraint(equalTo: view.bottomAnchor)
         ])
         
+        // MARK: Layout 깨짐 경고를 제거하고자 하는 경우 bottomSheetView의 heightAnchor 값을 지정하면 해결된다.
         bottomSheetView.translatesAutoresizingMaskIntoConstraints = false
         let topConstant = view.safeAreaInsets.bottom + view.safeAreaLayoutGuide.layoutFrame.height
         bottomSheetViewTopConstraint = bottomSheetView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: topConstant)
         NSLayoutConstraint.activate([
             bottomSheetView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor),
             bottomSheetView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor),
-            bottomSheetView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
+            bottomSheetView.bottomAnchor.constraint(equalTo: view.bottomAnchor), // MARK: 이부분으로 인해 Layout 깨짐 경고가 뜬다
             bottomSheetViewTopConstraint,
         ])
         

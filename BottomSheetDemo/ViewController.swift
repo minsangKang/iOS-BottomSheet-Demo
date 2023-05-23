@@ -40,6 +40,9 @@ extension ViewController {
     
     private func showBottomSheet() {
         // MARK: Show BottomSheetViewController
-        print("Show BottomSheetViewController")
+        let contentViewController = ContentViewController()
+        let bottomSheetViewController = BottomSheetViewController(contentViewController: contentViewController, defaultHeight: 500, cornerRadius: 16, dimmedAlpha: 0.4, isPannedable: true)
+        
+        self.present(bottomSheetViewController, animated: true)
     }
 }
